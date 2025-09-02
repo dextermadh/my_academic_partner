@@ -1,0 +1,13 @@
+backend/.env
+notebooks/.env
+/backend/data/raw
+/backend/data/processed
+/backend/data/styled
+/backend/data/extracted
+*.pdf
+*.csv
+*.docx
+*.json
+*.bin
+/notebooks/vectorstore
+/backend/vectorstore

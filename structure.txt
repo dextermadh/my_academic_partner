@@ -1,0 +1,43 @@
+academic_rag_chatbot/
+│
+├── data/                         
+│   ├── raw_pdfs/                 # Academic PDFs
+│   ├── raw_word/                 # Word files
+│   ├── processed/                 # Cleaned & sectioned JSON/CSV
+│
+├── vectorstore/                   # Persistent ChromaDB storage
+│
+├── notebooks/                     # Prototyping workflows
+│   ├── 01_extract.ipynb           # Extract (PDFs + Word)
+│   ├── 02_clean.ipynb             # Preprocessing & normalization
+│   ├── 03_embeddings.ipynb        # Generate embeddings → Chroma
+│   ├── 04_style.ipynb             # Stylistic refinement
+│   ├── 05_rag.ipynb               # Base RAG pipeline
+│   └── 06_agent.ipynb             # LangGraph AI Agent workflow
+│
+├── src/                           # 🔥 Core chatbot source code
+│   ├── agents/                    
+│   │   └── rag_agent.py           # LangGraph-powered RAG agent
+│   │
+│   ├── pipelines/                 
+│   │   ├── extract.py             # Extract pipeline (PDF + Word)
+│   │   ├── clean.py               # Text cleaning, normalization
+│   │   ├── embed.py               # Embedding + ChromaDB loader
+│   │   ├── style.py               # Stylistic analysis & writing pattern
+│   │   └── rag.py                 # Base RAG pipeline utilities
+│   │
+│   ├── chatbot/                   
+│   │   ├── interface.py           # Chat interface (Streamlit/FastAPI)
+│   │   └── memory.py              # Conversation memory
+│   │
+│   └── utils/                     
+│       ├── file_utils.py          # File I/O helpers
+│       ├── preprocess_utils.py    # Regex cleaning, text splitters
+│       └── config_loader.py       # Load settings.yaml
+│
+├── configs/
+│   └── settings.yaml              # Model (ChatGroq), paths, etc.
+│
+├── requirements.txt               
+├── README.md                      
+└── run_chatbot.py                 # 🔥 Entry point to launch chatbot
