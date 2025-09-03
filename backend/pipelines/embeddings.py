@@ -4,8 +4,8 @@ import os
 # Add the project root (two levels up from extract.py) to the Python path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
 
-from backend.utils.chunk import chunk_text
-from backend.utils.json_loader import load_json
+from backend.utils.preprocess_utils import chunk_text
+from backend.utils.file_utils import load_json
 from backend.utils.config_loader import load_config
 from pathlib import Path
 from tqdm import tqdm

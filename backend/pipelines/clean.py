@@ -7,7 +7,7 @@ import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
 
 from backend.utils.config_loader import load_config
-from backend.utils.clean_text import apply_clean
+from backend.utils.preprocess_utils import apply_clean
 import os
 import json
 

@@ -7,8 +7,8 @@ import sys
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
 
 from backend.utils.config_loader import load_config
-from backend.utils.extract_text import extract_text_from_pdf_file, extract_text_from_word_file
-from backend.utils.section_splitter import split_into_section
+from backend.utils.file_utils import extract_text_from_pdf_file, extract_text_from_word_file
+from backend.utils.preprocess_utils import split_into_section
 
 cfg = load_config()
 

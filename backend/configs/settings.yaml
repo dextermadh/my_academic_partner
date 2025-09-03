@@ -3,6 +3,7 @@ model:
   provider: 'groq'
   chat_model: 'llama-3.3-70b-versatile'
   style_model: 'qwen/qwen3-32b'
+  rag_model: 'qwen/qwen3-32b'
   embed_model: 'all-MiniLM-L6-v2'
   temperature: 0.3
 

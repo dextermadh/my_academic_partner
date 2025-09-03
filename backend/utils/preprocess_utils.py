@@ -1,3 +1,8 @@
+from langchain.schema import HumanMessage, SystemMessage 
+from .config_loader import load_config
+
+cfg = load_config()
+
 import re
 import string
 
@@ -79,3 +84,62 @@ def apply_clean(df_raw, df_sections):
     df_sections = df_sections[df_sections['cleaned_content'].str.strip() != '']
     
     return df_raw, df_sections
+
+def style_text(
+    llm,
+    text,
+    style = 'Write this text in my own grammar and tone, keep meaning same',
+):
+    if not text.strip(): 
+        return ''
+    try: 
+        response = llm.invoke([
+            SystemMessage(content=style),
+            HumanMessage(content=text) 
+        ])
+        return response.content.strip() 
+    except Exception as e: 
+        print(f'Error styling: {e}')
+        return text
+    
+def split_into_section(text): 
+    sections = {}
+    current_section = 'unknown'
+    buffer = []
+    
+    SECTION_HEADERS = [
+    "abstract", "introduction", "related work", "methodology",
+    "methods", "experiments", "results", "discussion",
+    "conclusion", "references", "acknowledgements"
+    ]
+
+    
+    for line in text.split('\n'): 
+        clean_line = line.strip().lower() 
+        if any(clean_line.startswith(h) for h in SECTION_HEADERS): 
+            if buffer: 
+                sections[current_section] = '\n'.join(buffer).strip() 
+                buffer = []
+            current_section = clean_line
+        buffer.append(line)
+    
+    if buffer: 
+        sections[current_section] = '\n'.join(buffer).strip() 
+    
+    return sections 
+
+def chunk_text(text, chunk_size = 200, overlap=50): 
+    '''
+    split text into overlapping chunks 
+    '''
+    words = text.split()
+    chunks = []
+    start = 0
+    
+    while start < len(words): 
+        end = min(start + chunk_size, len(words))
+        chunk = ' '.join(words[start:end])
+        chunks.append(chunk)
+        start += chunk_size - overlap
+    
+    return chunks  
