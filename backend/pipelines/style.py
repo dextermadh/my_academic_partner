@@ -8,9 +8,9 @@ from tqdm import tqdm
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
 
 from backend.utils.config_loader import load_config
-from backend.utils.json_loader import load_json
-from backend.utils.style_text import style_text
-from backend.utils.save_json import save_json
+from backend.utils.file_utils import load_json
+from backend.utils.preprocess_utils import style_text
+from backend.utils.file_utils import save_json
 from dotenv import load_dotenv
 
 load_dotenv()

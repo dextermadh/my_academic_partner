@@ -1,7 +1,8 @@
 # model configuration 
 model:
   provider: 'groq'
-  chat_model: 'llama-3.3-70b-versatile'
+  chat_model1: 'llama-3.3-70b-versatile'
+  chat_model2: 'openai/gpt-oss-120b'
   style_model: 'qwen/qwen3-32b'
   rag_model: 'qwen/qwen3-32b'
   embed_model: 'all-MiniLM-L6-v2'

@@ -24,8 +24,8 @@ class Agent:
     def __init__(self):
         self.styled_dirs = [Path(cfg['paths']['styled_raw']), Path(cfg['paths']['styled_sections'])]
         self.vectorstore = load_vectorstore()
-        self.rag_llm = setup_llm('chat_model')
-        self.chat_llm = setup_llm('chat_model')
+        self.rag_llm = setup_llm('chat_model1')
+        self.chat_llm = setup_llm('chat_model1')
         
     def rag_with_style(self, question: str): 
         '''Retrieve from vector DB + styled raw examples'''
