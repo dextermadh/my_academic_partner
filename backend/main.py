@@ -1,6 +1,9 @@
 from fastapi import FastAPI
 import sys
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # Add the project root (two levels up from extract.py) to the Python path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))

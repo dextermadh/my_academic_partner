@@ -1,40 +1,58 @@
-# model configuration 
+# model configuration
 model:
-  provider: 'groq'
-  chat_model1: 'llama-3.3-70b-versatile'
-  chat_model2: 'openai/gpt-oss-120b'
-  style_model: 'qwen/qwen3-32b'
-  rag_model: 'qwen/qwen3-32b'
-  embed_model: 'all-MiniLM-L6-v2'
+  provider: "groq"
+  api_base: "http://127.0.0.1:1234/v1"
+  api_key: "lm-studio"
+  chat_model: "llama-3.3-70b-versatile"
+  chat_model2: "openai/gpt-oss-120b"
+  style_model: "qwen/qwen3-32b"
+  rag_model: "qwen/qwen3-32b"
+  embed_model: "all-MiniLM-L6-v2"
   temperature: 0.3
 
-# data & file paths 
-paths: 
-  raw: 'backend/data/raw'
-  processed: 'backend/data/processed'
-  extracted: 'backend/data/extracted'
-  styled: 'backend/data/styled'
-  raw_raw_csv: 'backend/data/extracted/papers_raw.csv'
-  raw_extracted_csv: 'backend/data/extracted/papers_extracted.csv'
-  cleaned_raw_json: 'backend/data/processed/cleaned_raw.json'
-  cleaned_sections_json: 'backend/data/processed/cleaned_sections.json'
-  styled_raw: 'backend/data/styled/styled_raw.json'
-  styled_sections: 'backend/data/styled_sections.json'
-  vectorstore: 'backend/vectorstore'
+"model-local": 
+  "provider": "lmstudio"
+  "api_base": "http://localhost:1234/v1"
+  "api_key": "lm-studio"
+  "temperature": 0.3
+  "chat_model": "deepseek/deepseek-r1-0528-qwen3-8b"
 
-section_headers: ["abstract", "introduction", "related work", "methodology",
-    "methods", "experiments", "results", "discussion",
-    "conclusion", "references", "acknowledgements"]
+
+# data & file paths
+paths:
+  raw: "backend/data/raw"
+  processed: "backend/data/processed"
+  extracted: "backend/data/extracted"
+  styled: "backend/data/styled"
+  raw_raw_csv: "backend/data/extracted/papers_raw.csv"
+  raw_extracted_csv: "backend/data/extracted/papers_extracted.csv"
+  cleaned_raw_json: "backend/data/processed/cleaned_raw.json"
+  cleaned_sections_json: "backend/data/processed/cleaned_sections.json"
+  styled_raw: "backend/data/styled/styled_raw.json"
+  styled_sections: "backend/data/styled_sections.json"
+  vectorstore: "backend/vectorstore"
+
+section_headers:
+  [
+    "abstract",
+    "introduction",
+    "related work",
+    "methodology",
+    "methods",
+    "experiments",
+    "results",
+    "discussion",
+    "conclusion",
+    "references",
+    "acknowledgements",
+  ]
 
 file_type:
-  pdf: 'backend/data/raw'
-  word: 'backend/data/raw'
+  pdf: "backend/data/raw"
+  word: "backend/data/raw"
 
 # chromadb
-vectorstore: 
-  provider: 'chroma'
-  persist_directory: 'backend/vectorstore'
-  collection_name: 'academic_papers'
-
-
-
+vectorstore:
+  provider: "chroma"
+  persist_directory: "backend/vectorstore"
+  collection_name: "academic_papers"

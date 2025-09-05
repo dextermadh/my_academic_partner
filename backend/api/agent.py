@@ -2,11 +2,14 @@ import sys
 import os
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # Fix Python path to project root
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
 
-from backend.pipelines.extract import Agent  # Import your Agent class
+from backend.pipelines.agent import Agent  # Import your Agent class
 
 router = APIRouter()
 
