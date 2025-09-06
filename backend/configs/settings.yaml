@@ -15,7 +15,7 @@ model:
   "api_base": "http://localhost:1234/v1"
   "api_key": "lm-studio"
   "temperature": 0.3
-  "chat_model": "deepseek/deepseek-r1-0528-qwen3-8b"
+  "chat_model": "qwen3-4b-thinking-2507"
 
 
 # data & file paths
